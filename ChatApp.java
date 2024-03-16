@@ -85,7 +85,6 @@ public class ChatApp {
     private static void chatting(String email) throws Exception {
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            System.out.println();
             System.out.print("1. Message\n2. Incoming messages\n3. Log out\n4. Exit\n-> ");
             int a = scanner.nextInt();
             switch (a) {
@@ -103,6 +102,7 @@ public class ChatApp {
 
     private static void writeMessage(String email) throws IOException {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Message: ");
         String message = scanner.nextLine();
         FileWriter fileWriter = new FileWriter(fileMessages, true);
         fileWriter.append(email).append(",").append(String.valueOf(LocalTime.now())).append(",").append(message).append("\n");
@@ -120,7 +120,7 @@ public class ChatApp {
         String[] s = String.valueOf(a).split("\\n");
         for (String string : s) {
             String[] b = string.split(",");
-            System.out.printf("User: %s -- %s\n%s".formatted(b[0], b[1], b[2]));
+            System.out.printf("User: %s -- %s\n%s\n".formatted(b[0], b[1], b[2]));
         }
     }
 
